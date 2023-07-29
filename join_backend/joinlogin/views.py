@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.views import ObtainAuthToken, APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from django.contrib.auth.models import User
+from .serializers import RegisterSerializer
+from rest_framework import generics
 
 # Create your views here.
 class LoginView(ObtainAuthToken):
@@ -17,3 +20,20 @@ class LoginView(ObtainAuthToken):
             'user_id': user.pk,
             'email': user.email
         })
+        
+        
+class RegisterView(APIView):
+    
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = RegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'user_id': user.pk,
+            'email': user.email,
+            'token': token.key
+        },)
