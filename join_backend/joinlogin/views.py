@@ -37,7 +37,7 @@ class RegisterView(APIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     # authentication_classes = [TokenAuthentication]
-    # 2 permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         serializer = RegisterSerializer(data=request.data)
