@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'joinlogin',
     'corsheaders',
-    'addTask'
+    'addTask',
+    'contacts'
 ]
 
 MIDDLEWARE = [
