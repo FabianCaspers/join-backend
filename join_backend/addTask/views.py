@@ -8,6 +8,7 @@ from rest_framework import status
 class AddTaskViewSet(viewsets.ModelViewSet):
     queryset = AddTask.objects.all()
     serializer_class = AddTaskSerializer
+    
 
 
 @api_view(['DELETE'])
