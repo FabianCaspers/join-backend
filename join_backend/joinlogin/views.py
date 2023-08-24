@@ -60,22 +60,12 @@ class RegisterView(APIView):
         },)
         
         
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def logout_view(request):
-    request.auth.delete()
-    return Response({"message": "Logged out successfully."})
-
-        
-        
+   
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def current_user_view(request):
     serializer = CurrentUserSerializer(request.user)
     return Response(serializer.data)
-
-
-
 
 
 @api_view(['POST'])
