@@ -84,7 +84,7 @@ def send_reset_email(request):
     
     # Send Mail
     mail_subject = 'Reset your password.'
-    message = f"Here is your link to reset your password: https://darkjoin.fabiancaspers.com/html/reset-password.html?uid={uid}&token={token}"
+    message = f"Here is your link to reset your password: https://testseite.fabiancaspers.com/html/reset-password.html?uid={uid}&token={token}"
     send_mail(mail_subject, message, 'fabian.caspers1308@gmail.com', [email], fail_silently=False)
     
     return Response({"message": "Email sent."})
