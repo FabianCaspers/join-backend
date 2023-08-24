@@ -1,7 +1,7 @@
 from django import forms
-from .models import AddTask
+from .models import Task
 
-class AddTaskForm(forms.ModelForm):
+class TaskForm(forms.ModelForm):
     class Meta:
-        model = AddTask
+        model = Task
         fields = ['title', 'description', 'category', 'assigned', 'dueDate', 'prio', 'status']

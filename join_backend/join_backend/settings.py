@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'joinlogin',
     'corsheaders',
-    'addTask',
+    'tasks',
     'contacts'
 ]
 
