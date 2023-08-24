@@ -22,4 +22,6 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('send_reset_email/', views.send_reset_email, name='send_reset_email'),
     path('reset_password/<uidb64>/<token>/', views.reset_password_confirm, name='password_reset_confirm'),
+    path('logout/', views.logout_view, name='logout'),
+
 ]
