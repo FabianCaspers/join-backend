@@ -60,7 +60,7 @@ class RegisterView(APIView):
         },)
         
         
-@api_view(['POST'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def logout_view(request):
     request.auth.delete()
